@@ -24,7 +24,6 @@ using TeamMan.Interfaces;
 using TeamMan.Models;
 using TeamMan.Repositories;
 using TeamMan.Services;
-using Microsoft.Extensions.DependencyInjection.Abstractions;
 using Lib.Net.Http.WebPush;
 using static TeamMan.Models.AngularPushNotification;
 using TeamMan.ConfigModels;
@@ -141,11 +140,11 @@ namespace TeamMan
             }
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseSignalR(routes =>
-            { 
-            routes.MapHub<NotificationHub>("/NotificationAction");
-                routes.MapHub<NotificationUserHub>("/NotificationUserHub");
-                }) ;
+            //app.UseSignalR(routes =>
+            //{ 
+            //routes.MapHub<NotificationHub>("/NotificationAction");
+            //    routes.MapHub<NotificationUserHub>("/NotificationUserHub");
+            //    }) ;
 
             //app.UseMvc();
             app.UseRouting();
